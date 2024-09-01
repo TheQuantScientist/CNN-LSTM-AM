@@ -4,7 +4,7 @@ This project is submitted to the 15th Vietnam Economist Annual Meeting (VEAM 202
 
 ## Introduction 
 
-This project presents a cutting-edge approach that leverages the strengths of Convolutional Neural Networks (CNNs), Long Short-Term Memory networks (LSTMs), and Attention Mechanisms (AM) to enhance the accuracy of stock market predictions. By integrating these powerful techniques, our CLAM model addresses the limitations of traditional forecasting methods, offering a more comprehensive understanding of market dynamics.
+Our team presents a cutting-edge approach that leverages the strengths of Convolutional Neural Networks (CNNs), Long Short-Term Memory networks (LSTMs), and Attention Mechanisms (AM) to enhance the accuracy of stock market predictions. By integrating these powerful techniques, our CLAM model addresses the limitations of traditional forecasting methods, offering a more comprehensive understanding of market dynamics.
 
 ## Project Overview
 
