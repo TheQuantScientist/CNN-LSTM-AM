@@ -1,9 +1,11 @@
 # Publication 
 
-This project is submitted to the 15th Vietnam Economist Annual Meeting (VEAM 2024), soon published on the conference proceeding site as "[CLAM: A Synergistic Deep Learning Model for Multi-Step Stock Trend Forecasting](https://drive.google.com/file/d/1ckaukHiU5otFOi-PDuF0FQT-4r_uJUGa/view?usp=sharing)". 
+This project is submitted to the 15th Vietnam Economist Annual Meeting (VEAM 2024)
+**Link to paper:**
+> [CLAM: A Synergistic Deep Learning Model for Multi-Step Stock Trend Forecasting](https://drive.google.com/file/d/1ckaukHiU5otFOi-PDuF0FQT-4r_uJUGa/view?usp=sharing). 
 
 **Re-produce CLAM in LightningAI:** 
->https://lightning.ai/thequantscientist/studios/clam-a-simple-swing-trading-indicator
+> https://lightning.ai/thequantscientist/studios/clam-a-simple-swing-trading-indicator
 ## Introduction 
 
 Our team presents a cutting-edge approach that leverages the strengths of Convolutional Neural Networks (CNNs), Long Short-Term Memory networks (LSTMs), and Attention Mechanisms (AM) to enhance the accuracy of stock market predictions. By integrating these powerful techniques, our CLAM model addresses the limitations of traditional forecasting methods, offering a more comprehensive understanding of market dynamics.
