@@ -1,6 +1,6 @@
 # Publication 
 
-This project is submitted to the 15th Vietnam Economist Annual Meeting (VEAM 2024)
+This project is submitted to the 15th Vietnam Economist Annual Meeting (VEAM 2024).
 
 **Link to paper:**
 > [CLAM: A Synergistic Deep Learning Model for Multi-Step Stock Trend Forecasting](https://drive.google.com/file/d/1ckaukHiU5otFOi-PDuF0FQT-4r_uJUGa/view?usp=sharing). 
