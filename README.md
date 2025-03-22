@@ -1,8 +1,6 @@
-
-
+# CLAM: CNN-LSTM-AM Stock Price Prediction Model
 ![Your Banner](data/2.png)
 
-# CLAM: CNN-LSTM-AM Stock Price Prediction Model
 
 ## Overview
 
@@ -56,3 +54,6 @@ The CLAM model consists of the following layers:
 Install the required libraries using pip:
 ```bash
 pip install pandas matplotlib tensorflow numpy
+
+git clone https://github.com/yourusername/CLAM-Stock-Prediction.git
+cd CLAM-Stock-Prediction
