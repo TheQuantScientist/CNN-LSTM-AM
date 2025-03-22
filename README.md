@@ -2,44 +2,57 @@
 
 ![Your Banner](data/2.png)
 
-## Introduction 
+# CLAM: CNN-LSTM-AM Stock Price Prediction Model
 
-Our team presents a cutting-edge approach that leverages the strengths of Convolutional Neural Networks (CNNs), Long Short-Term Memory networks (LSTMs), and Attention Mechanisms (AM) to enhance the accuracy of stock market predictions. By integrating these powerful techniques, our CLAM model addresses the limitations of traditional forecasting methods, offering a more comprehensive understanding of market dynamics.
+## Overview
 
-## Project Overview
+This project implements **CLAM (CNN-LSTM-AM)**, a hybrid deep learning model combining Convolutional Neural Networks (CNN), Long Short-Term Memory (LSTM) networks, and an Attention Mechanism (AM) for stock price prediction. The model is designed to forecast stock prices and trends over a specified period (e.g., 5 days) using historical stock data. It processes time-series data to predict future prices and visualizes the results by comparing predicted trends against actual trends.
 
-The study presents the CLAM model, a hybrid deep learning architecture combining Convolutional Neural Networks (CNNs), Long Short-Term Memory (LSTM) networks, and an Attention Mechanism (AM), designed for multi-step stock price trend forecasting. The model was tested on OHLCV data from four prominent stocks over a 20-year period, focusing on the "Close" prices as the target feature. CLAM demonstrated superior performance compared to traditional models like CNN, LSTM, and their hybrids, achieving significant reductions in both Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE), with up to 91.8% improvement in MAE and 89.4% in RMSE on validation sets. The model's trend forecasting accuracy averaged 75%, effectively capturing market momentum and predicting consecutive trends, especially during volatile periods. Despite minor inconsistencies in some predictions, CLAM's robust architecture and sophisticated regularization techniques underscore its potential for practical financial applications, offering a promising framework for accurate time series forecasting in complex, high-stakes environments.
+The implementation is written in Python and leverages libraries such as TensorFlow/Keras for model building, Pandas for data manipulation, and Matplotlib for visualization. The project includes a sample application using historical stock data (`ABBV.csv`) for the stock ticker ABBV (AbbVie Inc.), but it can be adapted to other stocks by replacing the input data file.
 
 ## Features
 
-- **Integration of CNN, LSTM, and Attention Mechanisms:** This combination leverages CNN's feature extraction capabilities, LSTM's sequence learning, and the dynamic focusing ability of Attention Mechanisms, creating a powerful tool for market forecasting.
+- **Model Architecture**: Combines CNN layers for feature extraction, LSTM layers for sequential modeling, and an Attention Mechanism to focus on critical time steps.
+- **Prediction**: Outputs predicted stock prices for the next 5 days based on 60 days of historical data.
+- **Trend Analysis**: Generates "UP" or "DOWN" trend labels for both predicted and actual prices.
+- **Visualization**: Plots predicted vs. actual prices with trend annotations and saves the comparison as a high-resolution image (`ctrend.png`).
+- **Evaluation**: Tracks training performance using metrics like Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE).
 
-- **Attention Mechanisms for Dynamic Focus:** The Attention Mechanisms embedded in the model enhance its ability to prioritize the most relevant temporal and spatial features, improving prediction accuracy.
+## Model Architecture
 
-- **Customizable Neural Architecture:** The model architecture is designed to be flexible, allowing for easy customization and fine-tuning to suit various stock datasets and forecasting requirements.
+The CLAM model consists of the following layers:
 
-- **Use of Time Series Split for Model Validation:** The application of TimeSeriesSplit for model validation respects the temporal order of the data, which is crucial for time series forecasting.
+| Layer Type       | Output Shape       | Parameters |
+|------------------|--------------------|------------|
+| Input Layer      | (None, 60, 5)      | 0          |
+| Conv1D           | (None, 60, 128)    | 2,048      |
+| Dropout          | (None, 60, 128)    | 0          |
+| Conv1D           | (None, 60, 128)    | 49,280     |
+| Dropout          | (None, 60, 128)    | 0          |
+| Conv1D           | (None, 60, 128)    | 49,280     |
+| Dropout          | (None, 60, 128)    | 0          |
+| LSTM             | (None, 60, 200)    | 263,200    |
+| Dropout          | (None, 60, 200)    | 0          |
+| LSTM             | (None, 60, 200)    | 320,800    |
+| Dropout          | (None, 60, 200)    | 0          |
+| LSTM             | (None, 60, 200)    | 320,800    |
+| Dropout          | (None, 60, 200)    | 0          |
+| Attention        | (None, 200)        | 260        |
+| Dense            | (None, 7)          | 1,407      |
 
-- **Early Stopping Mechanism:** Implementation of an early stopping mechanism to prevent overfitting, improving the generalizability of the model.
+- **Total Parameters**: 1,007,075 (3.84 MB)
+- **Input**: 60 timesteps with 5 features (e.g., Open, High, Low, Close, Volume).
+- **Output**: Predicted prices for the next 7 days (configurable; sample uses 5 days).
 
-- **Efficient Data Preprocessing and Scaling:** The detailed preprocessing steps, including scaling of features and target variables, ensure that the model receives data in an optimal format for learning.
-  
+## Prerequisites
 
-## Technologies Used
+- **Python**: Version 3.10 or higher
+- **Libraries**:
+  - `pandas` (data manipulation)
+  - `matplotlib` (plotting)
+  - `tensorflow` or `keras` (deep learning framework)
+  - `numpy` (numerical operations)
 
-- **Pandas:** Used for data manipulation and analysis, particularly for loading the stock price data from CSV files and preprocessing it for the model.
-
-- **NumPy:** Utilized for numerical computing, especially in handling arrays and performing calculations related to the model's input features.
-
-- **Scikit-learn (sklearn):** This library is employed for preprocessing capabilities (e.g., MinMaxScaler for feature scaling) and for splitting the dataset into training and validation sets (TimeSeriesSplit), as well as for evaluating the model's performance using metrics like MAE and RMSE.
-
-- **Keras/TensorFlow:** These deep learning frameworks are used to define and train the CLAM model, including the CNN layers, LSTM layers, and Attention Mechanisms. They provide the infrastructure for model training, including automatic differentiation to compute gradients and optimizers (e.g., Adam) for updating model parameters.
-
-- **Matplotlib/Seaborn:** Used for visualizing the model's performance, including plotting error metrics and the progression of loss during training.
-
-- **Copy:** A standard Python library used for deep copying model states, enabling the implementation of early stopping by keeping track of the best model weights during training.
-
-
-## Getting Started
-
-Follow the instructions in the subsequent sections to set up your environment, train the model with your dataset, and evaluate its performance on stock price forecasting tasks using evaluation metrics such as MAE and RMSE. This model has been tested on various datasets of prominent technology, financial, and pharmaceutical companies, demonstrating its capability to accurately capture market trends and fluctuations.
+Install the required libraries using pip:
+```bash
+pip install pandas matplotlib tensorflow numpy
